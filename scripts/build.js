@@ -29,8 +29,9 @@ function getPackagesName () {
 
   return ret
 }
-
+console.log('begin npm build');
 function cleanPackagesOldDist(packagesName) {
+  console.log('clean lala');
   packagesName.forEach(name => {
     const distPath = resolve(`packages/${name}/dist`)
     const typePath = resolve(`packages/${name}/dist/types`)
@@ -211,7 +212,9 @@ const getAnswersFromInquirer = async (packagesName) => {
       name
     }))
   }
+  console.log(question)
   let { packages } = await inquirer.prompt(question)
+  console.log('cc', question);
   // make no choice
   if (!packages.length) {
     console.log(chalk.yellow(`

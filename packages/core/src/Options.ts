@@ -73,6 +73,7 @@ export interface DefOptions {
   outOfBoundaryDampingFactor?: number
   specifiedIndexAsContent?: number
   quadrant?: Quadrant
+  isOpposite: boolean
 }
 
 export interface Options extends DefOptions, CustomOptions {}
@@ -123,6 +124,7 @@ export class OptionsConstructor extends CustomOptions implements DefOptions {
   outOfBoundaryDampingFactor: number
   specifiedIndexAsContent: number
   quadrant: Quadrant
+  isOpposite: boolean
 
   constructor() {
     super()
@@ -136,6 +138,7 @@ export class OptionsConstructor extends CustomOptions implements DefOptions {
     this.click = false
     this.dblclick = false
     this.tap = ''
+    this.isOpposite = false
 
     this.bounce = {
       top: true,

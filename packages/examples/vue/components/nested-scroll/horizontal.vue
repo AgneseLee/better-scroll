@@ -68,7 +68,8 @@ export default {
         },
         scrollX: true,
         scrollY: false,
-        click: true
+        click: true,
+
       })
       // inner
       this.innerScroll = new BScroll(this.$refs.innerScroll, {
@@ -79,7 +80,8 @@ export default {
         },
         scrollX: true,
         scrollY: false,
-        click: true
+        click: true,
+         isOpposite:true
       })
     }
   }

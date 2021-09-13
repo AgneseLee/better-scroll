@@ -38,8 +38,11 @@
     },
     methods: {
       init() {
+        console.log('----')
         this.bs = new BScroll(this.$refs.scroll, {
           scrollX: true,
+          scrollY:true,
+          isOpposite:true,
           probeType: 3 // listening scroll event
         })
         this.bs.on('scrollStart', () => {

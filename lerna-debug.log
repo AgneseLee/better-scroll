@@ -1,0 +1,7 @@
+107 error Error: Command failed: git push --follow-tags --no-verify --atomic origin dev
+107 error remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+107 error remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+107 error fatal: Authentication failed for 'https://github.com/AgneseLee/better-scroll.git/'
+107 error
+107 error     at makeError (/Users/agneseli/code/personal/better-scroll/node_modules/@lerna/child-process/node_modules/execa/index.js:174:9)
+107 error     at /Users/agneseli/code/personal/better-scroll/node_modules/@lerna/child-process/node_modules/execa/index.js:278:16

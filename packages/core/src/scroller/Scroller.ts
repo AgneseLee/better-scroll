@@ -101,6 +101,7 @@ export default class Scroller implements ExposedAPI {
       'beforeRefresh',
     ])
     this.options = options
+    console.log('nvnv', options)
 
     const { left, right, top, bottom } = this.options.bounce
     // direction X
@@ -138,6 +139,7 @@ export default class Scroller implements ExposedAPI {
       this.animater,
       this.options
     )
+    console.log('ccc ', this.options)
 
     const resizeHandler = this.resize.bind(this)
     this.resizeRegister = new EventRegister(window, [
@@ -590,14 +592,10 @@ export default class Scroller implements ExposedAPI {
   }
 
   resetPosition(time = 0, easing = ease.bounce) {
-    const {
-      position: x,
-      inBoundary: xInBoundary,
-    } = this.scrollBehaviorX.checkInBoundary()
-    const {
-      position: y,
-      inBoundary: yInBoundary,
-    } = this.scrollBehaviorY.checkInBoundary()
+    const { position: x, inBoundary: xInBoundary } =
+      this.scrollBehaviorX.checkInBoundary()
+    const { position: y, inBoundary: yInBoundary } =
+      this.scrollBehaviorY.checkInBoundary()
 
     if (xInBoundary && yInBoundary) {
       return false

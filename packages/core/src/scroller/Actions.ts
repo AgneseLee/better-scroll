@@ -103,10 +103,8 @@ export default class ScrollerActions {
       }) => {
         if (!this.enabled) return true
 
-        const [
-          transformateDeltaX,
-          transformateDeltaY,
-        ] = applyQuadrantTransformation(deltaX, deltaY, this.options.quadrant)
+        const [transformateDeltaX, transformateDeltaY] =
+          applyQuadrantTransformation(deltaX, deltaY, this.options.quadrant)
         const transformateDeltaData = {
           deltaX: transformateDeltaX,
           deltaY: transformateDeltaY,
@@ -188,9 +186,16 @@ export default class ScrollerActions {
     const delta = this.directionLockAction.adjustDelta(deltaX, deltaY)
 
     const prevX = this.scrollBehaviorX.getCurrentPos()
-    const newX = this.scrollBehaviorX.move(delta.deltaX)
+    const newX = this.scrollBehaviorX.move(
+      this.options.isOpposite ? delta.deltaY : delta.deltaX
+    )
+    // const newX = this.scrollBehaviorX.move(delta.deltaX)
     const prevY = this.scrollBehaviorY.getCurrentPos()
-    const newY = this.scrollBehaviorY.move(delta.deltaY)
+    const newY = this.scrollBehaviorY.move(
+      this.options.isOpposite ? delta.deltaX : delta.deltaY
+    )
+    // const newY = this.scrollBehaviorY.move(delta.deltaY)
+    // console.log('jdjdjd ', delta, this.options.isOpposite);
 
     if (this.hooks.trigger(this.hooks.eventTypes.detectMovingDirection)) {
       return
@@ -274,14 +279,10 @@ export default class ScrollerActions {
   private ensureIntegerPos(currentPos: TranslaterPoint) {
     this.ensuringInteger = true
     let { x, y } = currentPos
-    const {
-      minScrollPos: minScrollPosX,
-      maxScrollPos: maxScrollPosX,
-    } = this.scrollBehaviorX
-    const {
-      minScrollPos: minScrollPosY,
-      maxScrollPos: maxScrollPosY,
-    } = this.scrollBehaviorY
+    const { minScrollPos: minScrollPosX, maxScrollPos: maxScrollPosX } =
+      this.scrollBehaviorX
+    const { minScrollPos: minScrollPosY, maxScrollPos: maxScrollPosY } =
+      this.scrollBehaviorY
 
     x = x > 0 ? Math.ceil(x) : Math.floor(x)
     y = y > 0 ? Math.ceil(y) : Math.floor(y)
