@@ -1,6 +1,6 @@
 {
   "name": "@better-scroll/mouse-wheel",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "description": "support for MouseWheel in PC",
   "author": {
     "name": "jizhi",
@@ -30,7 +30,7 @@
     "directory": "packages/mouse-wheel"
   },
   "dependencies": {
-    "@better-scroll/core": "^2.4.5"
+    "@better-scroll/core": "^2.4.6"
   },
   "gitHead": "bc4939b007b460d9c86f4669d7054e49361da7da"
 }
